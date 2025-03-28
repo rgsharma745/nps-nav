@@ -12,7 +12,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 DATE_FORMAT = '%m/%d/%Y'
 DIRECT_IP = "144.126.254.118"
-
+SCHEME_CODES = ["SM007001", "SM007002", "SM007003"]
 
 def download_and_extract_nav(date_str, url_variations):
     """
@@ -86,12 +86,13 @@ def update_csv(data):
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         for row in data:
-            writer.writerow({
-                'SCHEME CODE': row['SCHEME CODE'],
-                'SCHEME NAME': row['SCHEME NAME'],
-                'NAV': row['NAV'],
-                'DATE': row['DATE']
-            })
+            if row['SCHEME CODE'] in SCHEME_CODES:
+                writer.writerow({
+                    'SCHEME CODE': row['SCHEME CODE'],
+                    'SCHEME NAME': row['SCHEME NAME'],
+                    'NAV': row['NAV'],
+                    'DATE': row['DATE']
+                })
 
 
 def clean_up(file_name):
