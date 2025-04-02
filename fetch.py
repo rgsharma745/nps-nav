@@ -28,8 +28,9 @@ def download_and_extract_nav(date_str, url_variations):
 
     for variation in url_variations:
         domain_url = variation.format(date_str=date_str)
-        ip_url = domain_url.replace('npscra.nsdl.co.in', DIRECT_IP)
-        print(f"Trying URL: {ip_url}")
+        ip_url = domain_url
+        #ip_url = domain_url.replace('npscra.nsdl.co.in', DIRECT_IP)
+        #print(f"Trying URL: {ip_url}")
 
         try:
             response = requests.get(ip_url, headers=headers, verify=False, timeout=30)
@@ -41,7 +42,7 @@ def download_and_extract_nav(date_str, url_variations):
                         for file_name in zip_ref.namelist():
                             if file_name.endswith('.out'):
                                 zip_ref.extract(file_name, os.getcwd())
-                                print(f"Extracted: {file_name}")
+                                #print(f"Extracted: {file_name}")
                                 return file_name
                 except zipfile.BadZipFile:
                     print(f"Invalid ZIP file received from {ip_url}")
@@ -99,7 +100,7 @@ def clean_up(file_name):
     """Delete the extracted .out file to clean up."""
     if os.path.exists(file_name):
         os.remove(file_name)
-        print(f"Deleted {file_name}")
+        #print(f"Deleted {file_name}")
 
 
 def process_date(date, url_variations):
