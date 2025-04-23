@@ -6,6 +6,7 @@ from io import BytesIO
 
 import requests
 import urllib3
+from openpyxl import load_workbook
 
 # Disable SSL warnings since we're disabling verification
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -128,6 +129,39 @@ def last_working_day(days_to_minus):
     return last_working_date
 
 
+def download_from_icici_site():
+    url = 'https://api.iciciprupension.com/download'
+    response = requests.get(url)
+    if response.status_code == 200:
+        workbook = load_workbook(filename=BytesIO(response.content))
+        sheet = workbook.active
+        last_row = sheet.max_row
+        last_row_data = [cell.value for cell in sheet[last_row]]
+        print(last_row_data)
+        data = [
+            {
+                "DATE": last_row_data[0],
+                "SCHEME CODE": "SM007001",
+                "SCHEME NAME": 'ICICI PRUDENTIAL PENSION FUND SCHEME E - TIER I',
+                "NAV": last_row_data[1]
+            },
+            {
+                "DATE": last_row_data[0],
+                "SCHEME CODE": "SM007002",
+                "SCHEME NAME": 'ICICI PRUDENTIAL PENSION FUND SCHEME C - TIER I',
+                "NAV": last_row_data[2]
+            },
+            {
+                "DATE": last_row_data[0],
+                "SCHEME CODE": "SM007003",
+                "SCHEME NAME": 'ICICI PRUDENTIAL PENSION FUND SCHEME G - TIER I',
+                "NAV": last_row_data[3]
+            }
+        ]
+        update_csv(data)
+    else:
+        print("Download failed")
+
 if __name__ == "__main__":
     url_variations = [
         "https://npscra.nsdl.co.in/download/NAV_File_{date_str}.zip",
@@ -139,8 +173,9 @@ if __name__ == "__main__":
     ]
 
     try:
-        process_date(last_working_day(1), url_variations)
-        process_date(last_working_day(0), url_variations)
-        process_date(datetime.now(), url_variations)
+        #process_date(last_working_day(1), url_variations)
+        #process_date(last_working_day(0), url_variations)
+        #process_date(datetime.now(), url_variations)
+        download_from_icici_site()
     except Exception as exc:
         print(f"Generated an exception: {exc}")
