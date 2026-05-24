@@ -31,6 +31,9 @@ jobs:
 
     - name: Run fetch.py
       run: python fetch.py
+      env:
+        NAV_API_TOKEN: ${{ secrets.NAV_API_TOKEN }}
+        NAV_API_URL: ${{ secrets.NAV_API_URL }}
 
     - name: Commit and Push Changes
       run: |
