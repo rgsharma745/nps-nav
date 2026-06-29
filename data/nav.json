@@ -1,37 +1,37 @@
 {
   "government": {
-    "tier1_e_gov": 74.3763,
-    "tier1_c_gov": 46.122,
-    "tier1_g_gov": 38.7866,
+    "tier1_e_gov": 74.0358,
+    "tier1_c_gov": 46.2021,
+    "tier1_g_gov": 38.8961,
     "nps_lite": 10,
-    "tier2_tax_saver": 15.121,
-    "date": "2026-06-25"
+    "tier2_tax_saver": 15.1262,
+    "date": "2026-06-29"
   },
   "non_government": {
-    "tier1_e": 74.2828,
-    "tier1_c": 46.064,
-    "tier1_g": 38.7378,
+    "tier1_e": 73.9404,
+    "tier1_c": 46.1425,
+    "tier1_g": 38.846,
     "tier1_a": 0,
-    "tier2_e": 58.66,
-    "tier2_c": 42.6174,
-    "tier2_g": 37.3289,
+    "tier2_e": 58.3959,
+    "tier2_c": 42.6897,
+    "tier2_g": 37.4225,
     "tier2_a": 0,
-    "tier1_e_nongov_direct": 74.368,
-    "tier1_c_nongov_direct": 46.1168,
-    "tier1_g_nongov_direct": 38.7822,
-    "tier2_e_nongov_direct": 58.7272,
-    "tier2_c_nongov_direct": 42.6663,
-    "tier2_g_nongov_direct": 37.3717,
-    "vatsalya_nongov_direct": 9.9288,
-    "NPS_Vatsalya_Scheme": 9.9174,
-    "NPS_Sanchay_POP": 10.0107,
-    "NPS_sanchay_nongov_direct": 10.0136,
-    "date": "2026-06-25"
+    "tier1_e_nongov_direct": 74.0271,
+    "tier1_c_nongov_direct": 46.1966,
+    "tier1_g_nongov_direct": 38.8916,
+    "tier2_e_nongov_direct": 58.4644,
+    "tier2_c_nongov_direct": 42.7398,
+    "tier2_g_nongov_direct": 37.4664,
+    "vatsalya_nongov_direct": 9.8958,
+    "NPS_Vatsalya_Scheme": 9.8842,
+    "NPS_Sanchay_POP": 10.0159,
+    "NPS_sanchay_nongov_direct": 10.0191,
+    "date": "2026-06-29"
   },
   "msf": {
-    "tier1_INMFMF": 9.9449,
-    "ICICI_NPS_Dream": 9.689,
-    "NPS_Swasthya": 10.3175,
-    "date": "2026-06-25"
+    "tier1_INMFMF": 9.9034,
+    "ICICI_NPS_Dream": 9.6308,
+    "NPS_Swasthya": 10.2806,
+    "date": "2026-06-29"
   }
 }
